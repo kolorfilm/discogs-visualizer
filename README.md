@@ -12,7 +12,7 @@ The back end is build for Google App Engine in [Node.js](https://nodejs.org). Fo
 
 ## Local Development
 
-For local development you need to install npm dependencies and run the node application. You also need to create an application on the [Discogs Developer Settings Page](https://www.discogs.com/settings/developers) after you logged in. You need to store the generated consumer key and secret in your (.bash_profile)[https://scriptingosx.com/2017/04/about-bash_profile-and-bashrc-on-macos] file in your home directory on your mac.
+For local development you need to install npm dependencies and run the node application. You also need to create an application on the [Discogs Developer Settings Page](https://www.discogs.com/settings/developers) after you logged in. You need to store the generated consumer key and secret in your [.bash_profile](https://scriptingosx.com/2017/04/about-bash_profile-and-bashrc-on-macos) file in your home directory on your mac.
 
 [`npm`](https://www.npmjs.com) is used for front end dependency management.
 

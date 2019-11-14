@@ -4,8 +4,6 @@ function initSellsGraph() {
   $.get('/orders', (data, status) => {
     $('.loader').hide();
 
-    // console.log(data, status);
-
     if(data.error){
       location.href = '/authorize';
       return false;
@@ -65,7 +63,6 @@ function initSellsGraph() {
             if(item_year == year && item_month == month){
               i++;
               html_items += '<div class="item"><span class="item-price">' + Highcharts.numberFormat(item.total, 2) + ' €</span><span class="item-price">' + Highcharts.numberFormat(item.fee, 2) + ' €</span><a href="https://www.discogs.com/sell/order/' + item.id + '" target="_blank" class="item-release">' + item.id + '</a></span></div>';
-              console.log
               total_fees += item.fee;
             }
           });

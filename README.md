@@ -1,7 +1,5 @@
 # discogs-visualizer
 
-![alt Example Image](public/images/screenshots/example.png)
-
 App to visualize different data from [Discogs](https://www.discogs.com) marketplace. Currently it shows only your sells. It uses [disconnect](https://github.com/bartve/disconnect), a Node.js client with OAuth for the connection to the [Discogs API](https://www.discogs.com/developers).
 
 ## Front End
@@ -25,3 +23,5 @@ $ node server.js
 ```
 
 Afterwards you can just start the application in your browser with localhost:8080
+
+![alt Example Image](public/images/screenshots/example.png)

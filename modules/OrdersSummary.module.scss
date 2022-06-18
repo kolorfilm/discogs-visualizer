@@ -1,0 +1,14 @@
+.summary {
+  margin: 0 20px;
+  font-size: 20px;
+  line-height: 26px;
+
+  .link,
+  .label {
+    font-weight: 600;
+    width: 175px;
+    margin-right: 5px;
+    text-align: right;
+    display: inline-block;
+  }
+}

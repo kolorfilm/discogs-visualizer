@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "@next/next",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "globals": {
+    "React": "writable",
+    "NodeJS": true
+  }
+}

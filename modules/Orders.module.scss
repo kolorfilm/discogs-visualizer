@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  margin-bottom: 20px;
+
+  :global(.highcharts-subtitle) {
+    font-size: 14px !important;
+    font-weight: 400;
+  }
+
+  :global(.highcharts-tooltip) {
+    font-size: 12px !important;
+    line-height: 1.5;
+  }
+
+  :global(#highcharts-container) {
+    width: 100%;
+  }
+}
+
+.item {
+  display: table-row;
+
+  &.head {
+    font-weight: 700;
+
+    span {
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  .price {
+    display: table-cell;
+    text-align: right;
+    width: 60px;
+    padding-right: 10px;
+  }
+
+  .release {
+    display: table-cell;
+    text-align: right;
+    width: calc(100% - 120px);
+  }
+
+  .priceTotal {
+    font-weight: 700;
+  }
+
+  .foot {
+    border-top: 1px solid #000;
+  }
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 25px auto 0;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

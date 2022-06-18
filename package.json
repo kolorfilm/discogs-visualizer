@@ -1,20 +1,49 @@
 {
   "name": "discogs-visualizer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An app to visualize different data from discogs.com.",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node server.js"
-  },
   "author": "Michael Päßler",
-  "license": "ISC",
+  "scripts": {
+    "dev": "nodemon server/index.ts",
+    "build": "build:next",
+    "start": "NODE_ENV=production node server/index.ts",
+    "lint": "next lint",
+    "lintAll": "prettier --check . && next lint . --cache --ext .js,.jsx,.ts,.tsx && stylelint **/*.scss && tsc --noEmit",
+    "prettier": "prettier --check .",
+    "stylelint": "stylelint **/*.scss",
+    "tsc": "tsc --noEmit"
+  },
   "dependencies": {
-    "@google-cloud/datastore": "^4.2.0",
-    "body-parser": "^1.19.0",
-    "disconnect": "^1.2.1",
-    "ejs": "^2.6.2",
-    "express": "^4.17.1",
-    "npm": "^6.14.7"
+    "cors": "^2.8.5",
+    "disconnect": "^1.2.2",
+    "dotenv-webpack": "^7.1.0",
+    "express": "^4.18.1",
+    "highcharts": "^10.1.0",
+    "next": "12.1.6",
+    "nookies": "^2.5.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "ts-node": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.0",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "body-parser": "^1.20.0",
+    "classnames": "^2.3.1",
+    "eslint-config-next": "^12.1.6",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.2.0",
+    "typescript": "4.7.3"
   }
 }

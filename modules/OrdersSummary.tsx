@@ -2,6 +2,17 @@ import React from 'react'
 import { OrdersMapped } from '../types/OrdersMapped'
 import styles from './OrdersSummary.module.scss'
 
+export const ORDER_SUMMARY_LABELS = [
+  'First Order',
+  'Last Order',
+  'Total Orders',
+  'Items Sold',
+  'Sent Orders',
+  'Cancelled Order',
+  'Refunded Orders',
+  'Total Amount',
+]
+
 interface Props {
   orders: OrdersMapped
   firstOrderDate: string
@@ -13,18 +24,15 @@ const OrdersSummary: React.FC<Props> = ({
   firstOrderDate,
   lastOrderDate,
 }) => {
-  const summaryEntries = [
-    { label: 'First Order', value: firstOrderDate },
-    { label: 'Last Order', value: lastOrderDate },
-    { label: 'Total Orders', value: orders.ordersTotal },
-    { label: 'Items Sold', value: orders.itemsSold },
-    { label: 'Sent Orders', value: orders.ordersSent },
-    { label: 'Cancelled Order', value: orders.ordersCancelled },
-    { label: 'Refunded Orders', value: orders.ordersRefund },
-    {
-      label: 'Total Amount',
-      value: Number(orders.totalAmount).toFixed(2) + ' €',
-    },
+  const summaryValues = [
+    firstOrderDate,
+    lastOrderDate,
+    orders.ordersTotal,
+    orders.itemsSold,
+    orders.ordersSent,
+    orders.ordersCancelled,
+    orders.ordersRefund,
+    Number(orders.totalAmount).toFixed(2) + ' €',
   ]
 
   return (
@@ -35,14 +43,15 @@ const OrdersSummary: React.FC<Props> = ({
           href={`https://www.discogs.com/de/seller/${orders.username}/profile`}
           target="_blank"
           rel="noreferrer"
+          data-testid="order-summary-profile-link"
         >
           Profile Link
         </a>
       </div>
-      {summaryEntries.map((entry, index) => (
-        <div key={index}>
-          <label className={styles.label}>{entry.label}:</label>
-          {entry.value}
+      {ORDER_SUMMARY_LABELS.map((label, index) => (
+        <div key={index} data-testid={`order-summary-label-${index}`}>
+          <label className={styles.label}>{label}:</label>
+          {summaryValues[index]}
         </div>
       ))}
     </div>

@@ -59,7 +59,9 @@ const Orders: React.FC = () => {
         <title>Discogs Visualizer</title>
       </Head>
       <main className={styles.main}>
-        {loading && <div className={styles.loader}></div>}
+        {loading && (
+          <div className={styles.loader} data-testid="orders-loader"></div>
+        )}
         <div id={highchartsContainerId}></div>
         {orders && (
           <>

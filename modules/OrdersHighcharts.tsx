@@ -61,7 +61,6 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
     subtitle: {
       text: 'Profile of ' + orders.username,
     },
-
     xAxis: {
       type: 'datetime',
       labels: {

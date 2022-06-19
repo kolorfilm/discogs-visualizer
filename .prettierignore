@@ -1,4 +1,6 @@
 /testing
+/coverage
 /.next
 /public/assets/*
 *.json
+*.MD

@@ -9,6 +9,7 @@
     "start": "NODE_ENV=production node server/index.ts",
     "lint": "next lint",
     "lintAll": "prettier --check . && next lint . --cache --ext .js,.jsx,.ts,.tsx && stylelint **/*.scss && tsc --noEmit",
+    "testAll": "jest --maxWorkers=2 --all --coverage --verbose=true",
     "prettier": "prettier --check .",
     "stylelint": "stylelint **/*.scss",
     "tsc": "tsc --noEmit"
@@ -24,6 +25,7 @@
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.52.3",
     "ts-node": "^10.8.1"
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "body-parser": "^1.20.0",
     "classnames": "^2.3.1",
+    "eslint": "^8.18.0",
     "eslint-config-next": "^12.1.6",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",

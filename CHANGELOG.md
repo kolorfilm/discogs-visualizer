@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.6] - 2023-09-06
+
+### Changed
+
+- use ts-node (instead of nodemon) for start (bundled) application in production
+
+## [2.0.3] - [2.0.5]
+
+### Changed
+
+- bump packages + dependencies to latest versions
+- change jest + tsconfig config to fit updated dependencies
+
 ## [2.0.2] - 2022-06-19
 
 ### Added

@@ -9,3 +9,14 @@ jobs:
   lint-and-test-and-build-job:
     name: Lint, test and build
     uses: ./.github/workflows/reusable-lint-and-test-and-build-job.yml
+
+  wait-for-required-jobs:
+    name: Wait for jobs required for pull requests to be merge-able
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [lint-and-test-and-build-job]
+    steps:
+      - name: Checkout the repository so that the Bash script is accessible
+        uses: actions/checkout@v4
+      - name: Exit 1 if one of the `needs` was a failure
+        run: ./.github/scripts/exit-1-if-result-failure-was-passed.sh "${{ toJSON(needs) }}"

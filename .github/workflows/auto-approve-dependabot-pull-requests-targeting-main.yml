@@ -1,9 +1,9 @@
-name: Auto-approve Dependabot pull requests targeting `main` branch
+name: Auto-approve Dependabot pull requests targeting `master` branch
 
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 permissions:
   pull-requests: write

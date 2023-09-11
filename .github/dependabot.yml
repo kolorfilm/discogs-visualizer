@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: weekly
       day: sunday
-    target-branch: 'main'
+    target-branch: 'master'
     versioning-strategy: increase-if-necessary
     commit-message:
       prefix: '🤖 [Main App]'
@@ -23,7 +23,7 @@ updates:
     schedule:
       interval: weekly
       day: sunday
-    target-branch: 'main'
+    target-branch: 'master'
     commit-message:
       prefix: '🤖 [GitHub Actions]'
       include: scope

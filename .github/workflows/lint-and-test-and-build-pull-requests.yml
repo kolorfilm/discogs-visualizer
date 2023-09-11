@@ -1,0 +1,11 @@
+name: 'Lint, test and build pull requests'
+
+on:
+  pull_request:
+    paths:
+      - '**'
+
+jobs:
+  lint-and-test-and-build-job:
+    name: Lint, test and build
+    uses: ./.github/workflows/reusable-lint-and-test-and-build-job.yml

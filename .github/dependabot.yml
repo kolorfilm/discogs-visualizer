@@ -1,0 +1,35 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: sunday
+    target-branch: 'main'
+    versioning-strategy: increase-if-necessary
+    commit-message:
+      prefix: '🤖 [Main App]'
+      include: scope
+    open-pull-requests-limit: 25
+    groups:
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: sunday
+    target-branch: 'main'
+    commit-message:
+      prefix: '🤖 [GitHub Actions]'
+      include: scope
+    open-pull-requests-limit: 25
+    groups:
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'

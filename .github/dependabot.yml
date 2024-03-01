@@ -7,7 +7,6 @@ updates:
       interval: monthly
       day: sunday
     target-branch: 'main'
-    versioning-strategy: increase-if-necessary
     commit-message:
       prefix: '🤖 [Main App]'
       include: scope

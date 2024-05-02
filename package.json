@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "NODE_ENV=production ts-node server/index.ts",
     "lint": "next lint",
-    "lintAll": "prettier --check . && next lint . --cache --ext .js,.jsx,.ts,.tsx && stylelint **/*.scss && tsc --noEmit",
-    "testAll": "jest --maxWorkers=2 --all --coverage --verbose=true",
+    "lintAll": "prettier --check . && next lint . --ext .js,.jsx,.ts,.tsx && stylelint **/*.scss && tsc --noEmit",
+    "testAll": "jest --all --coverage --verbose=true",
     "prettier": "prettier --check .",
     "stylelint": "stylelint **/*.scss",
     "tsc": "tsc --noEmit"

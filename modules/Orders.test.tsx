@@ -1,4 +1,5 @@
-import { act, render, screen } from '@testing-library/react'
+import { act } from 'react'
+import { render, screen } from '@testing-library/react'
 import fetchMock from 'jest-fetch-mock'
 import Orders from './Orders'
 import { ordersMapped } from '../mocks/ordersMapped'

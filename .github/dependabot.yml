@@ -18,7 +18,7 @@ updates:
         dependency-type: 'development'
     ignore:
       - dependency-name: 'eslint'
-        versions: [ '^9.x' ]
+        versions: ['^9.x']
 
   - package-ecosystem: github-actions
     directory: '/'

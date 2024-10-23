@@ -1,0 +1,22 @@
+name: 'Check pull requests that modify meta files'
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/auto-approve-dependabot-pull-requests-targeting-main.yml'
+      - '.github/workflows/check-pull-requests-that-modify-meta-files.yml'
+      - '.github/dependabot.yml'
+      - '.github/scripts/exit-1-if-result-failure-was-passed.sh'
+      - '.editorconfig'
+      - '.gitignore'
+      - 'README.md'
+      - 'CHANGELOG.md'
+
+jobs:
+  wait-for-required-jobs:
+    name: Wait for jobs that are required for pull requests to be merge-able
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Exit with success
+        run: exit 0

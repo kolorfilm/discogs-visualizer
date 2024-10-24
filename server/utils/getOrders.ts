@@ -12,15 +12,14 @@ module.exports = async function getOrders(
   return await marketplace
     .getOrders({ per_page: 50 })
     .then(async (orders: Orders) => {
-      let series = [] as Record<number, number>[]
       let itemsSold = 0
       let totalAmount = 0
       let ordersTotal = 0
       let ordersCancelled = 0
-      let seriesItems = [] as SeriesItem[]
       let ordersRefund = 0
+      const series = [] as Record<number, number>[]
+      const seriesItems = [] as SeriesItem[]
 
-      // @ts-ignore
       for (let i = 0; i < orders.pagination.pages; i++) {
         await marketplace
           .getOrders({ per_page: 50, page: i + 1 })

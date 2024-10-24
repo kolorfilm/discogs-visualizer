@@ -6,7 +6,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/next-env.d.ts',
-    '!<rootDir>/next.config.js',
+    '!<rootDir>/next.config.mjs',
     '!.next/**',
     '!**/node_modules/**',
     '!**/libs/**',

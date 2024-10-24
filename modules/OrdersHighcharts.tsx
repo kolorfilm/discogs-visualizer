@@ -87,14 +87,12 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
         const month = new Date(this.x as number).getMonth()
         let totalFees = 0
         let htmlItems = '<div>' + tooltipHeaderAsString()
-        let i = 0
 
         orders.seriesItems.forEach((item) => {
           const item_year = new Date(item.created).getFullYear()
           const item_month = new Date(item.created).getMonth()
 
           if (item_year === year && item_month === month) {
-            i++
             htmlItems += tooltipLineItemAsString(item)
             totalFees += item.fee
           }

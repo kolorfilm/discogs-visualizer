@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.7] - 2024-10-24
+
+### Changed
+
+- migrate eslint to version 9
+
 ## [2.0.6] - 2023-09-06
 
 ### Changed

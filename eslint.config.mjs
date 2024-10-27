@@ -32,7 +32,6 @@ export default tseslint.config(
       'react-hooks': reactHooksPlugin,
       jest: jestPlugin,
     },
-    ignores: ['**/public/**', '**/.next/**'],
     settings: {
       react: {
         version: 'detect',
@@ -51,5 +50,6 @@ export default tseslint.config(
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
     },
-  }
+  },
+  { ignores: ['**/public/**', '**/.next/**', '**/coverage/**'] }
 )

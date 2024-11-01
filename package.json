@@ -22,11 +22,11 @@
     "express": "^4.21.1",
     "highcharts": "^11.4.8",
     "identity-obj-proxy": "^3.0.0",
-    "next": "^15.0.1",
+    "next": "^15.0.2",
     "nookies": "^2.5.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "sass": "^1.80.4"
+    "sass": "^1.80.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",

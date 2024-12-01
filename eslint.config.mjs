@@ -1,12 +1,13 @@
-import js from '@eslint/js'
-import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import globals from 'globals'
-import nextPlugin from '@next/eslint-plugin-next'
-import reactPlugin from 'eslint-plugin-react'
-import reactHooksPlugin from 'eslint-plugin-react-hooks'
-import jestPlugin from 'eslint-plugin-jest'
-import eslintConfigPrettier from 'eslint-config-prettier'
+import js from '@eslint/js';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
+import nextPlugin from '@next/eslint-plugin-next';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import importPlugin from 'eslint-plugin-import';
+import jestPlugin from 'eslint-plugin-jest';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default tseslint.config(
   {
@@ -30,6 +31,7 @@ export default tseslint.config(
       '@next/next': nextPlugin,
       react: reactPlugin,
       'react-hooks': reactHooksPlugin,
+      import: importPlugin,
       jest: jestPlugin,
     },
     settings: {
@@ -43,6 +45,22 @@ export default tseslint.config(
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...reactHooksPlugin.configs.recommended.rules,
+      'no-undef': 'error',
+      curly: 'error',
+      'object-curly-spacing': ['error', 'always'],
+      'object-shorthand': ['warn', 'properties'],
+      '@typescript-eslint/no-unused-vars': ['error'],
+      '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
+      'react/react-in-jsx-scope': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'import/namespace': 'warn',
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', ['sibling', 'parent'], 'index'],
+        },
+      ],
     },
   },
   {
@@ -52,4 +70,4 @@ export default tseslint.config(
     },
   },
   { ignores: ['**/public/**', '**/.next/**', '**/coverage/**'] }
-)
+);

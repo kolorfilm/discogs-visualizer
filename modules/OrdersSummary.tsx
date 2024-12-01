@@ -1,4 +1,3 @@
-import React from 'react';
 import { OrdersMapped } from '../types/OrdersMapped';
 import styles from './OrdersSummary.module.scss';
 
@@ -13,13 +12,13 @@ export const ORDER_SUMMARY_LABELS = [
   'Total Amount',
 ];
 
-interface Props {
+interface OrdersSummaryProps {
   orders: OrdersMapped;
   firstOrderDate: string;
   lastOrderDate: string;
 }
 
-const OrdersSummary: React.FC<Props> = ({ orders, firstOrderDate, lastOrderDate }) => {
+const OrdersSummary = ({ orders, firstOrderDate, lastOrderDate }: OrdersSummaryProps) => {
   const summaryValues = [
     firstOrderDate,
     lastOrderDate,

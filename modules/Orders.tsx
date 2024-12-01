@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Highcharts from 'highcharts/highstock'
 import Head from 'next/head'
-import OrderHighcharts from './OrdersHighcharts'
+import dynamic from 'next/dynamic'
+const OrdersHighcharts = dynamic(() => import('./OrdersHighcharts'), {
+  ssr: false,
+})
 import OrdersSummary from './OrdersSummary'
 import { OrdersMapped } from '../types/OrdersMapped'
 import styles from './Orders.module.scss'
@@ -11,9 +13,6 @@ const Orders: React.FC = () => {
   const [orders, setOrders] = useState<OrdersMapped | null>(null)
   const [firstOrderDate, setFirstOrderDate] = useState('')
   const [lastOrderDate, setLastOrderDate] = useState('')
-
-  const dateFormat = '%Y/%m/%d'
-  const highchartsContainerId = 'highcharts-container'
 
   useEffect(() => {
     const fetchOrders = async (): Promise<void> => {
@@ -29,12 +28,13 @@ const Orders: React.FC = () => {
 
           const orders = data.orders
           const seriesItems = orders.seriesItems
-          const firstOrderDate = Highcharts.dateFormat(
-            dateFormat,
-            seriesItems[0].created
-          )
-          const lastOrderDate = Highcharts.dateFormat(
-            dateFormat,
+          const formatter = new Intl.DateTimeFormat('en-CA', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+          })
+          const firstOrderDate = formatter.format(seriesItems[0].created)
+          const lastOrderDate = formatter.format(
             seriesItems[seriesItems.length - 1].created
           )
 
@@ -62,13 +62,9 @@ const Orders: React.FC = () => {
         {loading && (
           <div className={styles.loader} data-testid="orders-loader"></div>
         )}
-        <div id={highchartsContainerId}></div>
         {orders && (
           <>
-            <OrderHighcharts
-              containerId={highchartsContainerId}
-              orders={orders}
-            />
+            <OrdersHighcharts orders={orders} />
             <OrdersSummary
               orders={orders}
               firstOrderDate={firstOrderDate}

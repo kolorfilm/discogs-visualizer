@@ -1,8 +1,8 @@
-import path from 'path'
-import Dotenv from 'dotenv-webpack'
-import { config } from 'dotenv'
+import path from 'path';
+import Dotenv from 'dotenv-webpack';
+import { config } from 'dotenv';
 
-config()
+config();
 
 const nextConfig = {
   reactStrictMode: true,
@@ -16,10 +16,10 @@ const nextConfig = {
         path: path.join(process.cwd(), '.env'),
         systemvars: true,
       }),
-    ]
+    ];
 
-    return config
+    return config;
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

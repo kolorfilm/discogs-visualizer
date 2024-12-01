@@ -1,13 +1,13 @@
 export interface Order {
-  id: string
-  status: string
-  created: string
+  id: string;
+  status: string;
+  created: string;
   total: {
-    value: number
-  }
+    value: number;
+  };
   fee: {
-    value: number
-  }
-  items: unknown[]
-  resource_url: string
+    value: number;
+  };
+  items: unknown[];
+  resource_url: string;
 }

@@ -1,11 +1,9 @@
-import { RequestData } from '../../types/RequestData'
-import { setCookie } from 'nookies'
-import { Request } from 'express'
-const { ACCESS_DATA_COOKIE_NAME } = require('./constants')
+import { setCookie } from 'nookies';
+import { Request } from 'express';
+import { RequestData } from '../../types/RequestData';
 
-module.exports = function saveAccessDataInCookie(
-  req: Request,
-  accessData: RequestData
-): void {
-  setCookie(req, ACCESS_DATA_COOKIE_NAME, JSON.stringify(accessData))
-}
+const { ACCESS_DATA_COOKIE_NAME } = require('./constants');
+
+module.exports = function saveAccessDataInCookie(req: Request, accessData: RequestData): void {
+  setCookie(req, ACCESS_DATA_COOKIE_NAME, JSON.stringify(accessData));
+};

@@ -1,9 +1,9 @@
-import { OrdersMapped } from '../types/OrdersMapped'
-import Highcharts from 'highcharts/highstock'
-import * as ReactDOMServer from 'react-dom/server'
-import cx from 'classnames'
-import styles from './Orders.module.scss'
-import React, { useEffect } from 'react'
+import Highcharts from 'highcharts/highstock';
+import * as ReactDOMServer from 'react-dom/server';
+import cx from 'classnames';
+import { useEffect } from 'react';
+import { OrdersMapped } from '../types/OrdersMapped';
+import styles from './Orders.module.scss';
 
 const tooltipHeaderAsString = (): string =>
   ReactDOMServer.renderToString(
@@ -12,26 +12,19 @@ const tooltipHeaderAsString = (): string =>
       <span className={styles.price}>Fee</span>
       <span className={styles.release}>Order Link</span>
     </div>
-  )
+  );
 
-const tooltipLineItemAsString = (item: {
-  total: number
-  fee: number
-  id: string
-}): string =>
+const tooltipLineItemAsString = (item: { total: number; fee: number; id: string }): string =>
   ReactDOMServer.renderToString(
     <div className={styles.item}>
       <span className={styles.price}>{Number(item.total).toFixed(2)} €</span>
       <span className={styles.price}>{Number(item.fee).toFixed(2)} €</span>
-      <a
-        href={`https://www.discogs.com/sell/order/${item.id}`}
-        className={styles.release}
-      >
+      <a href={`https://www.discogs.com/sell/order/${item.id}`} className={styles.release}>
         {item.id}
       </a>
       <span></span>
     </div>
-  )
+  );
 
 const tooltipFooterAsString = (totalFees: number, value: number): string =>
   ReactDOMServer.renderToString(
@@ -39,12 +32,10 @@ const tooltipFooterAsString = (totalFees: number, value: number): string =>
       <span className={cx(styles.price, styles.priceTotal, styles.foot)}>
         {Number(value).toFixed(2)} €
       </span>
-      <span className={cx(styles.price, styles.foot)}>
-        {Number(totalFees).toFixed(2)} €
-      </span>
+      <span className={cx(styles.price, styles.foot)}>{Number(totalFees).toFixed(2)} €</span>
       <span className={cx(styles.release, styles.foot)}></span>
     </div>
-  )
+  );
 
 const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
   Highcharts.setOptions({
@@ -52,7 +43,7 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
       thousandsSep: '.',
       decimalPoint: ',',
     },
-  })
+  });
 
   Highcharts.stockChart(containerId, {
     title: {
@@ -65,7 +56,7 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
       type: 'datetime',
       labels: {
         formatter: function () {
-          return Highcharts.dateFormat('%Y/%m', this.value as number)
+          return Highcharts.dateFormat('%Y/%m', this.value as number);
         },
       },
     },
@@ -83,25 +74,25 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
       valueDecimals: 2,
       useHTML: true,
       formatter: function () {
-        const year = new Date(this.x as number).getFullYear()
-        const month = new Date(this.x as number).getMonth()
-        let totalFees = 0
-        let htmlItems = '<div>' + tooltipHeaderAsString()
+        const year = new Date(this.x as number).getFullYear();
+        const month = new Date(this.x as number).getMonth();
+        let totalFees = 0;
+        let htmlItems = '<div>' + tooltipHeaderAsString();
 
         orders.seriesItems.forEach((item) => {
-          const item_year = new Date(item.created).getFullYear()
-          const item_month = new Date(item.created).getMonth()
+          const item_year = new Date(item.created).getFullYear();
+          const item_month = new Date(item.created).getMonth();
 
           if (item_year === year && item_month === month) {
-            htmlItems += tooltipLineItemAsString(item)
-            totalFees += item.fee
+            htmlItems += tooltipLineItemAsString(item);
+            totalFees += item.fee;
           }
-        })
+        });
 
-        htmlItems += tooltipFooterAsString(totalFees, this.y as number)
-        htmlItems += '</div>'
+        htmlItems += tooltipFooterAsString(totalFees, this.y as number);
+        htmlItems += '</div>';
 
-        return htmlItems
+        return htmlItems;
       },
     },
     series: [
@@ -114,21 +105,21 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
         data: orders.series,
       },
     ],
-  })
+  });
+};
+
+interface OrdersHighchartsProps {
+  orders: OrdersMapped;
 }
 
-interface Props {
-  orders: OrdersMapped
-}
-
-const OrdersHighcharts: React.FC<Props> = ({ orders }) => {
-  const highchartsContainerId = 'highcharts-container'
+const OrdersHighcharts = ({ orders }: OrdersHighchartsProps) => {
+  const highchartsContainerId = 'highcharts-container';
 
   useEffect(() => {
-    initHighcharts(highchartsContainerId, orders)
-  }, [highchartsContainerId, orders])
+    initHighcharts(highchartsContainerId, orders);
+  }, [highchartsContainerId, orders]);
 
-  return <div id={highchartsContainerId}></div>
-}
+  return <div id={highchartsContainerId}></div>;
+};
 
-export default OrdersHighcharts
+export default OrdersHighcharts;

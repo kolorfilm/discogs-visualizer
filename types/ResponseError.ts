@@ -1,3 +1,3 @@
 export interface ResponseError extends Error {
-  statusCode?: number
+  statusCode?: number;
 }

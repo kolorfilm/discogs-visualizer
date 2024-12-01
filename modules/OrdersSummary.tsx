@@ -1,6 +1,6 @@
-import React from 'react'
-import { OrdersMapped } from '../types/OrdersMapped'
-import styles from './OrdersSummary.module.scss'
+import React from 'react';
+import { OrdersMapped } from '../types/OrdersMapped';
+import styles from './OrdersSummary.module.scss';
 
 export const ORDER_SUMMARY_LABELS = [
   'First Order',
@@ -11,19 +11,15 @@ export const ORDER_SUMMARY_LABELS = [
   'Cancelled Order',
   'Refunded Orders',
   'Total Amount',
-]
+];
 
 interface Props {
-  orders: OrdersMapped
-  firstOrderDate: string
-  lastOrderDate: string
+  orders: OrdersMapped;
+  firstOrderDate: string;
+  lastOrderDate: string;
 }
 
-const OrdersSummary: React.FC<Props> = ({
-  orders,
-  firstOrderDate,
-  lastOrderDate,
-}) => {
+const OrdersSummary: React.FC<Props> = ({ orders, firstOrderDate, lastOrderDate }) => {
   const summaryValues = [
     firstOrderDate,
     lastOrderDate,
@@ -33,7 +29,7 @@ const OrdersSummary: React.FC<Props> = ({
     orders.ordersCancelled,
     orders.ordersRefund,
     Number(orders.totalAmount).toFixed(2) + ' €',
-  ]
+  ];
 
   return (
     <div className={styles.summary}>
@@ -55,7 +51,7 @@ const OrdersSummary: React.FC<Props> = ({
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default OrdersSummary
+export default OrdersSummary;

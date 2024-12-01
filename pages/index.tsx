@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
-import Orders from '../modules/Orders'
+import type { NextPage } from 'next';
+import Orders from '../modules/Orders';
 
-const Main: NextPage = () => <Orders />
+const Main: NextPage = () => <Orders />;
 
-export default Main
+export default Main;

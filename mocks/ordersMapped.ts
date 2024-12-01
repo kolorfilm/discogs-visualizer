@@ -28,8 +28,7 @@ export const ordersMapped = {
           release: {
             id: 822281,
             resource_url: 'https://api.discogs.com/releases/822281',
-            description:
-              'Cassino & Laben* Feat. Marina Puglisi - Lasting Memories (12")',
+            description: 'Cassino & Laben* Feat. Marina Puglisi - Lasting Memories (12")',
             thumbnail:
               'https://i.discogs.com/qux7GkBDmaT7KL2J-hhrFbICz8URzFozI3Jm5K5paLk/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMjI4/MS0xMjExMTI3NjU5/LmpwZWc.jpeg',
           },
@@ -199,8 +198,7 @@ export const ordersMapped = {
           release: {
             id: 299663,
             resource_url: 'https://api.discogs.com/releases/299663',
-            description:
-              'Subsky / Muzo* - Let It Flow / Particular People (12")',
+            description: 'Subsky / Muzo* - Let It Flow / Particular People (12")',
             thumbnail:
               'https://i.discogs.com/b71_EoP2pH5bftgCPkpMpRSpvf0OKBaidjM3jGAPBx4/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5OTY2/My0xNjQ1NzE5NDU1/LTc5MjMuanBlZw.jpeg',
           },
@@ -257,8 +255,7 @@ export const ordersMapped = {
           release: {
             id: 651168,
             resource_url: 'https://api.discogs.com/releases/651168',
-            description:
-              'Various - Back To Back Sessions Vol.1 (Sampler) (Disc One) (12", Smplr)',
+            description: 'Various - Back To Back Sessions Vol.1 (Sampler) (Disc One) (12", Smplr)',
             thumbnail:
               'https://i.discogs.com/scG4zTNhfy8IwHRueSIp_6irNS6Xa3U_-9pZhsBGKs4/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY1MTE2/OC0xMjM2MjY5OTcw/LmpwZWc.jpeg',
           },
@@ -277,8 +274,7 @@ export const ordersMapped = {
           release: {
             id: 520920,
             resource_url: 'https://api.discogs.com/releases/520920',
-            description:
-              'Hawaii / Plastique Vision - Setting Up / Barely Away (12")',
+            description: 'Hawaii / Plastique Vision - Setting Up / Barely Away (12")',
             thumbnail:
               'https://i.discogs.com/zhreT-Zy2XexGiTpCUnQcUFl2U6tk0bQKesQqz_GCPI/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUyMDky/MC0xMTg5MDE0MDY2/LmpwZWc.jpeg',
           },
@@ -334,8 +330,7 @@ export const ordersMapped = {
           release: {
             id: 43284,
             resource_url: 'https://api.discogs.com/releases/43284',
-            description:
-              'Madonna - What It Feels Like For A Girl (12", Single)',
+            description: 'Madonna - What It Feels Like For A Girl (12", Single)',
             thumbnail:
               'https://i.discogs.com/xBPWXV8yKimCFqkLmfGZTr-NrhVtsW51aJLpjMXmpTA/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzMjg0/LTE1ODkxMTI0MzMt/MjU2OS5qcGVn.jpeg',
           },
@@ -350,4 +345,4 @@ export const ordersMapped = {
   itemsSold: 100,
   totalAmount: 100,
   username: 'testuser',
-}
+};

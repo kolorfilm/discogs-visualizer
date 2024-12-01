@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 import fetchMock from 'jest-fetch-mock'
 import Orders from './Orders'
 import { ordersMapped } from '../mocks/ordersMapped'
-import Highcharts from 'highcharts/highstock'
 import { ORDER_SUMMARY_LABELS } from './OrdersSummary'
 
 jest.mock('highcharts/highstock')
@@ -33,14 +32,6 @@ describe('Orders', () => {
   })
 
   it('renders summary correctly', async () => {
-    const firstOrderDate = '2022-01-01'
-    const lastOrderDate = '2022-06-01'
-
-    jest
-      .spyOn(Highcharts, 'dateFormat')
-      .mockReturnValueOnce(firstOrderDate)
-      .mockReturnValueOnce(lastOrderDate)
-
     await renderComponent()
 
     expect(fetchMock).toHaveBeenCalledTimes(1)
@@ -60,10 +51,10 @@ describe('Orders', () => {
 
     expect(
       screen.getByText(ORDER_SUMMARY_LABELS[0] + ':').parentNode
-    ).toHaveTextContent(firstOrderDate)
+    ).toHaveTextContent('2018-09-05')
     expect(
       screen.getByText(ORDER_SUMMARY_LABELS[1] + ':').parentNode
-    ).toHaveTextContent(lastOrderDate)
+    ).toHaveTextContent('2019-02-02')
     expect(
       screen.getByText(ORDER_SUMMARY_LABELS[2] + ':').parentNode
     ).toHaveTextContent(ordersMapped.ordersTotal.toString())

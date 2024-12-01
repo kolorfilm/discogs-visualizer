@@ -3,7 +3,7 @@ import Highcharts from 'highcharts/highstock'
 import * as ReactDOMServer from 'react-dom/server'
 import cx from 'classnames'
 import styles from './Orders.module.scss'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const tooltipHeaderAsString = (): string =>
   ReactDOMServer.renderToString(
@@ -118,14 +118,17 @@ const initHighcharts = (containerId: string, orders: OrdersMapped): void => {
 }
 
 interface Props {
-  containerId: string
   orders: OrdersMapped
 }
 
-const OrdersHighcharts: React.FC<Props> = ({ containerId, orders }) => {
-  initHighcharts(containerId, orders)
+const OrdersHighcharts: React.FC<Props> = ({ orders }) => {
+  const highchartsContainerId = 'highcharts-container'
 
-  return <></>
+  useEffect(() => {
+    initHighcharts(highchartsContainerId, orders)
+  }, [highchartsContainerId, orders])
+
+  return <div id={highchartsContainerId}></div>
 }
 
 export default OrdersHighcharts

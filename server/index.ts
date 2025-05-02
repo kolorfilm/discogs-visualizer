@@ -86,7 +86,8 @@ const onAppHasBeenPrepared = () => {
     });
   });
 
-  server.get('*', (req, res) => {
+  // handle all other routes with Next.js
+  server.all(/(.*)/, (req, res) => {
     return handle(req, res);
   });
 

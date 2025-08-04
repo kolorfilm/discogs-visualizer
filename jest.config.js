@@ -21,7 +21,16 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': [
       'babel-jest',
       {
-        presets: ['next/babel'],
+        presets: [
+          [
+            'next/babel',
+            {
+              'preset-react': {
+                runtime: 'automatic',
+              },
+            },
+          ],
+        ],
         plugins: ['@babel/plugin-proposal-private-methods'],
       },
     ],

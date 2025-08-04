@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.8] - 2025-08-04
+
+### Changed
+
+- bump packages + dependencies to latest versions
+- use latest node version in GitHub Actions workflow
+
+### Fixed
+- adjust jest config to fix "outdated JSX transform" warning when running tests
+
 ## [2.0.7] - 2024-10-24
 
 ### Changed
@@ -16,7 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - use ts-node (instead of nodemon) for start (bundled) application in production
 
-## [2.0.3] - [2.0.5]
+## [2.0.5]
 
 ### Changed
 

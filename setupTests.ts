@@ -12,4 +12,4 @@ Object.defineProperty(window.document, 'cookie', {
   value: '',
 });
 
-global.TextEncoder = TextEncoder;
+global.TextEncoder = TextEncoder as unknown as typeof globalThis.TextEncoder;

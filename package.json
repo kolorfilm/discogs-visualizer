@@ -22,7 +22,7 @@
     "express": "^5.1.0",
     "highcharts": "^12.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "next": "^15.4.5",
+    "next": "^15.4.7",
     "nookies": "^2.5.2",
     "react": "19.1.1",
     "react-dom": "19.1.1",

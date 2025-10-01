@@ -17,16 +17,16 @@
   "dependencies": {
     "cors": "^2.8.5",
     "disconnect": "^1.2.2",
-    "dotenv": "^17.2.1",
+    "dotenv": "^17.2.3",
     "dotenv-webpack": "^8.1.1",
     "express": "^5.1.0",
-    "highcharts": "^12.3.0",
+    "highcharts": "^12.4.0",
     "identity-obj-proxy": "^3.0.0",
-    "next": "^15.4.7",
+    "next": "^15.5.4",
     "nookies": "^2.5.2",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "sass": "^1.89.2"
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",

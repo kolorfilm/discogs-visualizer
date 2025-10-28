@@ -63,7 +63,7 @@ const onAppHasBeenPrepared = () => {
             })
             .status(500);
         } else {
-          saveAccessDataInCookie(req, accessData);
+          saveAccessDataInCookie(res, accessData);
           res.redirect('/');
         }
       });

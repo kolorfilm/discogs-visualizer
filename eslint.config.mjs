@@ -69,5 +69,5 @@ export default tseslint.config(
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
-  { ignores: ['**/public/**', '**/.next/**', '**/coverage/**'] }
+  { ignores: ['**/public/**', '**/.next/**', '**/coverage/**', 'next-env.d.ts'] }
 );

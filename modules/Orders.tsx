@@ -17,7 +17,7 @@ const Orders = () => {
 
   useEffect(() => {
     const fetchOrders = async (): Promise<void> => {
-      fetch(process.env.DISCOGS_APP_URL + '/orders')
+      fetch(process.env.NEXT_PUBLIC_DISCOGS_APP_URL + '/orders')
         .then((orders) => orders.json())
         .then((data) => {
           if (data.hasAuthError) {

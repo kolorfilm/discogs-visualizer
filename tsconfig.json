@@ -19,7 +19,7 @@
     "moduleResolution": "node",
     "allowImportingTsExtensions": false,
     "types": [
-      "jest",
+      "vitest/globals",
       "@testing-library/jest-dom"
     ],
     "esModuleInterop": true,
@@ -35,6 +35,7 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vitest.config.ts"
   ]
 }

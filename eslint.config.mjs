@@ -6,23 +6,20 @@ import nextPlugin from '@next/eslint-plugin-next';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import importPlugin from 'eslint-plugin-import';
-import jestPlugin from 'eslint-plugin-jest';
+import vitestPlugin from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default tseslint.config(
+  js.configs.recommended,
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintConfigPrettier,
   {
-    extends: [
-      js.configs.recommended,
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      eslintConfigPrettier,
-    ],
     languageOptions: {
       globals: {
         ...globals.es2020,
         ...globals.node,
         ...globals.browser,
-        ...globals.jest,
       },
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -32,7 +29,7 @@ export default tseslint.config(
       react: reactPlugin,
       'react-hooks': reactHooksPlugin,
       import: importPlugin,
-      jest: jestPlugin,
+      vitest: vitestPlugin,
     },
     settings: {
       react: {
@@ -67,6 +64,30 @@ export default tseslint.config(
     files: ['server/**', 'setupTests.ts'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.{ts,tsx}', 'setupTests.ts'],
+    plugins: {
+      vitest: vitestPlugin,
+    },
+    rules: {
+      ...vitestPlugin.configs.recommended.rules,
+    },
+    languageOptions: {
+      globals: {
+        ...globals.es2020,
+        ...globals.node,
+        ...globals.browser,
+        vi: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+      },
     },
   },
   { ignores: ['**/public/**', '**/.next/**', '**/coverage/**', 'next-env.d.ts'] }

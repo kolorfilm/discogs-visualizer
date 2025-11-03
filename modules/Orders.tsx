@@ -38,17 +38,12 @@ const Orders = () => {
           setOrders(orders);
           setFirstOrderDate(firstOrderDate);
           setLastOrderDate(lastOrderDate);
+          setLoading(false);
         });
     };
 
     fetchOrders().then();
   }, []);
-
-  useEffect(() => {
-    if (orders) {
-      setLoading(false);
-    }
-  }, [orders]);
 
   return (
     <div className={styles.container}>

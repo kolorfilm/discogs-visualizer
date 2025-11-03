@@ -1,11 +1,10 @@
 import { act } from 'react';
 import { render, screen } from '@testing-library/react';
-import fetchMock from 'jest-fetch-mock';
 import Orders from './Orders';
 import { ordersMapped } from '../mocks/ordersMapped';
 import { ORDER_SUMMARY_LABELS } from './OrdersSummary';
 
-jest.mock('highcharts/highstock');
+vi.mock('highcharts/highstock');
 
 describe('Orders', () => {
   const renderComponent = async (): Promise<void> => {
@@ -15,16 +14,22 @@ describe('Orders', () => {
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
-    fetchMock.mockResponse(JSON.stringify({ orders: ordersMapped }));
+    vi.clearAllMocks();
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ orders: ordersMapped }),
+      } as Response)
+    );
   });
 
   it('fetches orders correctly', async () => {
     await renderComponent();
 
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
 
-    expect(fetchMock.mock.calls[0][0]).toEqual(process.env.NEXT_PUBLIC_DISCOGS_APP_URL + '/orders');
+    expect(vi.mocked(global.fetch).mock.calls[0][0]).toEqual(
+      process.env.NEXT_PUBLIC_DISCOGS_APP_URL + '/orders'
+    );
 
     expect(screen.queryByTestId('orders-loader')).not.toBeInTheDocument();
   });
@@ -32,7 +37,7 @@ describe('Orders', () => {
   it('renders summary correctly', async () => {
     await renderComponent();
 
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
 
     const profileLink = screen.getByTestId('order-summary-profile-link');
     expect(profileLink).toHaveAttribute(

@@ -10,4 +10,4 @@ export default function saveAccessDataInCookie(res: Response, accessData: Reques
     maxAge: 60 * 60 * 24 * 7, // 7 days
   });
   res.setHeader('Set-Cookie', cookie);
-};
+}

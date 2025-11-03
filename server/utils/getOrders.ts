@@ -75,4 +75,4 @@ export default async function getOrders(accessData: RequestData): Promise<Orders
       totalAmount,
     };
   });
-};
+}

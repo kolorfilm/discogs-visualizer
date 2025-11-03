@@ -9,4 +9,4 @@ export default function getAccessDataCookie(req: Request): RequestData | null {
   const accessDataCookie = cookies?.[ACCESS_DATA_COOKIE_NAME] ?? null;
 
   return accessDataCookie ? JSON.parse(accessDataCookie) : null;
-};
+}

@@ -24,7 +24,7 @@ describe('Orders', () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
 
-    expect(fetchMock.mock.calls[0][0]).toEqual(process.env.DISCOGS_APP_URL + '/orders');
+    expect(fetchMock.mock.calls[0][0]).toEqual(process.env.NEXT_PUBLIC_DISCOGS_APP_URL + '/orders');
 
     expect(screen.queryByTestId('orders-loader')).not.toBeInTheDocument();
   });

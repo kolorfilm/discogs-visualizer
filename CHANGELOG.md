@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.9] - 2025-11-03
+
+### Changed
+
+- migrate jest to vitest
+- update cookie package dependency and fix cookie handling
+- add more unit tests
+- bump packages + dependencies to latest versions
+- use latest node version in GitHub Actions workflow
+
 ## [2.0.8] - 2025-08-04
 
 ### Changed

@@ -2,10 +2,10 @@ import { RequestData } from '../../types/RequestData';
 import { SeriesItem } from '../../types/SeriesItem';
 import { Orders } from '../../types/Orders';
 import { OrdersMapped } from '../../types/OrdersMapped';
-const Discogs = require('disconnect').Client;
+import { createDiscogsClient } from './discogsClient';
 
-module.exports = async function getOrders(accessData: RequestData): Promise<OrdersMapped> {
-  const marketplace = new Discogs(accessData).marketplace();
+export default async function getOrders(accessData: RequestData): Promise<OrdersMapped> {
+  const marketplace = createDiscogsClient(accessData).marketplace();
 
   return await marketplace.getOrders({ per_page: 50 }).then(async (orders: Orders) => {
     let itemsSold = 0;
@@ -13,8 +13,8 @@ module.exports = async function getOrders(accessData: RequestData): Promise<Orde
     let ordersTotal = 0;
     let ordersCancelled = 0;
     let ordersRefund = 0;
-    const series = [] as Record<number, number>[];
-    const seriesItems = [] as SeriesItem[];
+    const series: Record<number, number>[] = [];
+    const seriesItems: SeriesItem[] = [];
 
     for (let i = 0; i < orders.pagination.pages; i++) {
       await marketplace.getOrders({ per_page: 50, page: i + 1 }).then((orders: Orders) => {

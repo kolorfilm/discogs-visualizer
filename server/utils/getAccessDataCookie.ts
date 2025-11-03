@@ -1,8 +1,9 @@
 import { Request } from 'express';
 import { parse } from 'cookie';
-const { ACCESS_DATA_COOKIE_NAME } = require('./constants');
+import { RequestData } from '../../types/RequestData';
+import { ACCESS_DATA_COOKIE_NAME } from './constants';
 
-module.exports = function getAccessDataCookie(req: Request): string | null {
+export default function getAccessDataCookie(req: Request): RequestData | null {
   const cookieHeader = req.headers.cookie || '';
   const cookies = parse(cookieHeader);
   const accessDataCookie = cookies?.[ACCESS_DATA_COOKIE_NAME] ?? null;

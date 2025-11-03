@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import { RequestData } from '../types/RequestData';
 import { IdentityData } from '../types/IdentityData';
 import { ResponseError } from '../types/ResponseError';
+import saveAccessDataInCookie from './utils/saveAccessDataCookie';
+import getAccessDataCookie from './utils/getAccessDataCookie';
+import getOrders from './utils/getOrders';
 
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.NODE_PORT ? process.env.NODE_PORT : 3000;
@@ -11,10 +14,6 @@ const port = process.env.NODE_PORT ? process.env.NODE_PORT : 3000;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const Discogs = require('disconnect').Client;
-
-const saveAccessDataInCookie = require('./utils/saveAccessDataCookie');
-const getAccessDataCookie = require('./utils/getAccessDataCookie');
-const getOrders = require('./utils/getOrders');
 
 const onAppHasBeenPrepared = () => {
   const server = express();
@@ -72,12 +71,17 @@ const onAppHasBeenPrepared = () => {
   server.get('/orders', (req, res) => {
     const accessData = getAccessDataCookie(req);
 
+    if (!accessData) {
+      res.status(401).json({ hasAuthError: true });
+      return;
+    }
+
     new Discogs(accessData).getIdentity(async function (
       error: ResponseError,
       identityData: IdentityData
     ) {
       if (error) {
-        res.json({ hasAuthError: true }).status(error.statusCode as number);
+        res.json({ hasAuthError: true }).status(error.statusCode ?? 500);
       } else {
         const orders = await getOrders(accessData);
 

@@ -81,7 +81,7 @@ const onAppHasBeenPrepared = () => {
       identityData: IdentityData
     ) {
       if (error) {
-        res.json({ hasAuthError: true }).status(error.statusCode ?? 500);
+        res.status(error.statusCode ?? 500).json({ hasAuthError: true });
       } else {
         const orders = await getOrders(accessData);
 

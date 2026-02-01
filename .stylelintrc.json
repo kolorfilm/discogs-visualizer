@@ -18,7 +18,6 @@
     "selector-pseudo-class-no-unknown": [true, {
       "ignorePseudoClasses": ["global", "export"]
     }],
-    "scss/at-import-partial-extension": null,
     "selector-class-pattern": null,
     "keyframes-name-pattern": null,
     "declaration-block-no-redundant-longhand-properties": null,

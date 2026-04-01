@@ -1,6 +1,7 @@
 /testing
 /coverage
 /.next
+next-env.d.ts
 /public/assets/*
 *.json
 *.MD

@@ -17,17 +17,17 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "cookie": "^1.1.1",
+    "cookie": "^2.0.1",
     "cors": "^2.8.6",
     "disconnect": "^1.2.2",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "highcharts": "^12.6.0",
+    "highcharts": "^13.0.0",
     "identity-obj-proxy": "^3.0.0",
     "next": "^16.2.7",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "sass": "^1.100.0"
+    "sass": "^1.101.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",

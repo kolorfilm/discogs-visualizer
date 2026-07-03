@@ -42,7 +42,7 @@
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs",
-      "moduleResolution": "node10"
+      "moduleResolution": "bundler"
     }
   }
 }

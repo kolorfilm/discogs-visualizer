@@ -8,13 +8,13 @@
     "build": "next build",
     "start": "NODE_ENV=production ts-node server/index.ts",
     "lint": "eslint",
-    "lintAll": "prettier --check . && eslint . && stylelint **/*.scss && tsc --noEmit",
+    "lintAll": "next typegen && prettier --check . && eslint . && stylelint **/*.scss && tsc --noEmit",
     "test": "vitest",
     "testAll": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "prettier": "prettier --check .",
     "stylelint": "stylelint **/*.scss",
-    "tsc": "tsc --noEmit"
+    "tsc": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "cookie": "^2.0.1",

@@ -24,7 +24,7 @@
     "express": "^5.2.1",
     "highcharts": "^13.0.0",
     "identity-obj-proxy": "^3.0.0",
-    "next": "^16.2.7",
+    "next": "^16.2.11",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "sass": "^1.101.0"

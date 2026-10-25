@@ -44,7 +44,7 @@
     "@vitest/coverage-v8": "^5.0.2",
     "@vitest/eslint-plugin": "^1.6.27",
     "@vitest/ui": "^5.0.5",
-    "body-parser": "^2.3.0",
+    "body-parser": "^2.4.0",
     "classnames": "^2.5.1",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.6",

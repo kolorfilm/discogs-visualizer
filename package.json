@@ -20,14 +20,14 @@
     "cookie": "^2.0.1",
     "cors": "^2.8.6",
     "disconnect": "^1.2.2",
-    "dotenv": "^18.0.4",
-    "express": "^5.2.1",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
     "highcharts": "^13.1.1",
     "identity-obj-proxy": "^3.0.0",
-    "next": "^16.4.1",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
-    "sass": "^1.105.0"
+    "next": "^16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sass": "^1.107.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",

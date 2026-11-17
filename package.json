@@ -65,7 +65,7 @@
     "stylelint-scss": "^7.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1",
+    "typescript-eslint": "^8.73.0",
     "vitest": "^5.0.2",
     "vitest-fetch-mock": "^0.4.5"
   },
